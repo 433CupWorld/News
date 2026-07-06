@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta content='width=device-width,initial-scale=1' name='viewport'/>
+<title>GLOBAL WIRE — Verified International News Desk</title>
+<style>
+:root{--bg:#ffffff;--ink:#111318;--muted:#5b6472;--red:#c8102e;--blue:#003a70;--line:#e6e8ec;--card:#f7f8fa;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.6}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+/* TICKER */
+.ticker-bar{background:var(--red);color:#fff;overflow:hidden;white-space:nowrap;padding:8px 0;font-family:Arial,sans-serif}
+.ticker-bar b{background:#fff;color:var(--red);padding:4px 10px;margin-right:10px;border-radius:2px;font-size:12px}
+.ticker-track{display:inline-block;padding-left:100%;animation:scroll 30s linear infinite;font-size:13px;font-weight:600}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+/* HEADER */
+.site-header{border-bottom:3px solid var(--ink);padding:18px 0;font-family:Arial,sans-serif}
+.header-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.logo{font-size:30px;font-weight:900;letter-spacing:-1px;text-transform:uppercase}
+.logo span{color:var(--red)}
+.date-line{color:var(--muted);font-size:12px}
+.navbar{background:var(--ink);font-family:Arial,sans-serif}
+.navbar ul{display:flex;gap:0;list-style:none;max-width:1200px;margin:0 auto}
+.navbar a{display:block;color:#fff;padding:12px 20px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;transition:.2s}
+.navbar a:hover{background:var(--red)}
+.menu-toggle{display:none;background:var(--ink);color:#fff;border:none;padding:10px 16px;font-family:Arial,sans-serif;font-weight:700}
+/* HERO / LEAD STORY */
+.lead-story{display:grid;grid-template-columns:1.6fr 1fr;gap:22px;margin:28px 0;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.lead-img{position:relative;height:400px;overflow:hidden;border-radius:4px}
+.lead-img img{width:100%;height:100%;object-fit:cover}
+.tag-red{position:absolute;top:14px;left:14px;background:var(--red);color:#fff;font-family:Arial;font-size:11px;font-weight:800;padding:5px 12px;letter-spacing:1px;text-transform:uppercase}
+.lead-title{font-size:32px;font-weight:800;margin:16px 0 10px;line-height:1.2}
+.lead-excerpt{color:var(--muted);font-size:15px}
+.side-stories{display:flex;flex-direction:column;gap:16px}
+.mini-story{display:flex;gap:12px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.mini-story img{width:110px;height:80px;object-fit:cover;border-radius:3px;flex-shrink:0}
+.mini-story h4{font-size:15px;font-weight:700;line-height:1.3}
+.mini-story span{font-family:Arial;font-size:11px;color:var(--blue);font-weight:700;text-transform:uppercase}
+/* LAYOUT */
+.content-wrap{display:flex;gap:30px;max-width:1200px;margin:0 auto 40px;padding:0 16px}
+.main-col{flex:3;min-width:0}
+.side-col{flex:1;min-width:280px}
+.section-title{font-family:Arial,sans-serif;font-size:20px;font-weight:800;text-transform:uppercase;border-bottom:3px solid var(--ink);padding-bottom:10px;margin-bottom:20px;display:flex;justify-content:space-between}
+.section-title span{color:var(--red)}
+/* POST GRID */
+.post-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-bottom:20px}
+.post-card{border-bottom:1px solid var(--line);padding-bottom:20px}
+.post-thumb{height:180px;overflow:hidden;margin-bottom:12px;position:relative;border-radius:3px}
+.post-thumb img{width:100%;height:100%;object-fit:cover}
+.cat-badge{position:absolute;top:10px;left:10px;background:var(--blue);color:#fff;font-family:Arial;font-size:10px;font-weight:800;padding:4px 10px;text-transform:uppercase}
+.post-card h3{font-size:18px;font-weight:800;margin-bottom:8px;line-height:1.3}
+.post-card p{color:var(--muted);font-size:14px}
+.meta{font-family:Arial,sans-serif;font-size:11px;color:var(--muted);margin-top:10px;text-transform:uppercase;letter-spacing:.5px}
+.meta .verified{color:#1a7f37;font-weight:700}
+/* SIDEBAR */
+.widget-box{border:1px solid var(--line);border-radius:4px;padding:18px;margin-bottom:24px;background:var(--card)}
+.widget-box h4{font-family:Arial;font-size:15px;font-weight:800;text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--red)}
+.trend-item{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);align-items:center}
+.trend-num{font-family:Arial;font-size:22px;font-weight:900;color:var(--line);width:28px;flex-shrink:0}
+.trend-item h5{font-size:13px;font-weight:700;line-height:1.3}
+.trend-item span{font-family:Arial;font-size:10px;color:var(--muted)}
+.live-box{background:var(--ink);color:#fff;padding:16px;border-radius:4px}
+.live-box .dot{width:8px;height:8px;background:var(--red);border-radius:50%;display:inline-block;margin-right:6px;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.3}}
+/* FOOTER */
+.site-footer{background:var(--ink);color:#cfd3da;padding:40px 16px 20px;font-family:Arial,sans-serif;margin-top:20px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1200px;margin:0 auto}
+.footer-grid h5{color:#fff;margin-bottom:12px;text-transform:uppercase;font-size:14px}
+.footer-grid a{display:block;color:#9aa1ac;font-size:13px;margin-bottom:8px}
+.copyright{text-align:center;color:#6b7280;font-size:12px;margin-top:30px;border-top:1px solid #2a2f3a;padding-top:16px}
+@media(max-width:860px){.navbar ul{display:none}.menu-toggle{display:block}.lead-story{grid-template-columns:1fr}.content-wrap{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<div class='ticker-bar'>
+ <div class='wrap' style='display:flex;align-items:center'>
+  <b>BREAKING</b>
+  <div class='ticker-track'>Global Markets React to Policy Summit &#160;&#8226;&#160; UN Session Concludes with New Resolution &#160;&#8226;&#160; Verified Reports Confirm Diplomatic Talks Resume &#160;&#8226;&#160; Live Coverage: International Summit Underway</div>
+ </div>
+</div>
+
+<header class='site-header'>
+ <div class='wrap header-inner'>
+  <a class='logo' href='#'>GLOBAL<span>WIRE</span></a>
+  <div class='date-line'>GlobalWire &#183; Verified International News Desk</div>
+ </div>
+</header>
+
+<nav class='navbar'>
+ <button class='menu-toggle'>&#9776; MENU</button>
+ <ul>
+  <li><a href='#'>Home</a></li>
+  <li><a href='#'>World Events</a></li>
+  <li><a href='#'>Breaking News</a></li>
+  <li><a href='#'>Live Reports</a></li>
+ </ul>
+</nav>
+
+<div class='wrap'>
+ <div class='lead-story'>
+  <div>
+   <div class='lead-img'>
+    <span class='tag-red'>Breaking</span>
+    <img alt='World Summit' src='https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1000&amp;q=80'/>
+   </div>
+   <h1 class='lead-title'>World Leaders Convene for Critical Global Summit</h1>
+   <p class='lead-excerpt'>Verified reporting from international correspondents on the ground as diplomatic talks progress across major world capitals.</p>
+  </div>
+  <div class='side-stories'>
+   <div class='mini-story'>
+    <img alt='UN Session' src='https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=300&amp;q=80'/>
+    <div><span>World Events</span><h4>UN General Assembly Addresses Global Policy Shift</h4></div>
+   </div>
+   <div class='mini-story'>
+    <img alt='Global Markets' src='https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=300&amp;q=80'/>
+    <div><span>Economy</span><h4>Markets Stabilize Following Central Bank Statement</h4></div>
+   </div>
+   <div class='mini-story'>
+    <img alt='International Flags' src='https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=300&amp;q=80'/>
+    <div><span>Diplomacy</span><h4>Bilateral Talks Confirmed Between Regional Powers</h4></div>
+   </div>
+  </div>
+ </div>
+</div>
+
+<div class='content-wrap'>
+ <main class='main-col'>
+  <div class='section-title'>Latest <span>Verified</span> Stories</div>
+  
+  <div class='post-grid'>
+   <article class='post-card'>
+    <a href='#'>
+     <div class='post-thumb'>
+      <span class='cat-badge'>World Events</span>
+      <img alt='Article News' src='https://images.unsplash.com/photo-1495020689067-958852a7765e?w=600&amp;q=80'>
+     </div>
+     <h3>International Treaty Signed to Protect Digital Privacy</h3>
+     <p>Global delegates have reached an agreement on data security legislation during late-night sessions.</p>
+     <div class='meta'><span class='verified'>&#10004; Verified</span> &#160;&#183;&#160; July 2026 &#160;&#183;&#160; Admin</div>
+    </a>
+   </article>
+
+   <article class='post-card'>
+    <a href='#'>
+     <div class='post-thumb'>
+      <span class='cat-badge'>Economy</span>
+      <img alt='Article News' src='https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&amp;q=80'>
+     </div>
+     <h3>Tech Innovation Disrupts Traditional Financial Hubs</h3>
+     <p>New financial networks report record-breaking transaction volumes as adoption surges globally.</p>
+     <div class='meta'><span class='verified'>&#10004; Verified</span> &#160;&#183;&#160; July 2026 &#160;&#183;&#160; Admin</div>
+    </a>
+   </article>
+  </div>
+
+  <div style='text-align:center;margin:24px 0'>
+   <a href='#' style='font-family:Arial;font-weight:700;color:#fff;background:var(--ink);padding:10px 22px;border-radius:3px'>Older Stories</a>
+  </div>
+ </main>
+
+ <aside class='side-col'>
+  <div class="live-box" style="margin-bottom: 24px;">
+   <div style="font-family:Arial;font-weight:800;font-size:13px;text-transform:uppercase;margin-bottom:10px"><span class="dot"></span>Live Reports</div>
+   <div style="font-size:13px;line-height:1.6">Correspondents providing real-time verified updates from major global events. All reports cross-checked before publishing.</div>
+  </div>
+
+  <div class="widget-box">
+   <h4>Trending Global Topics</h4>
+   <div class="trend-item"><span class="trend-num">01</span><div><h5>Climate Accord Talks Reach Key Milestone</h5><span>World Events</span></div></div>
+   <div class="trend-item"><span class="trend-num">02</span><div><h5>Global Trade Routes Under Review</h5><span>Economy</span></div></div>
+   <div class="trend-item"><span class="trend-num">03</span><div><h5>Tech Regulation Summit Set for Next Week</h5><span>Technology</span></div></div>
+   <div class="trend-item"><span class="trend-num">04</span><div><h5>Regional Elections Draw International Attention</h5><span>Politics</span></div></div>
+  </div>
+
+  <div class='widget-box'>
+   <h4>Categories</h4>
+   <div class='widget-content cloud-label-widget-content'>
+    <span class='label-size'><a class='label-name' href='#'>World Events</a></span>
+    <span class='label-size'><a class='label-name' href='#'>Breaking News</a></span>
+    <span class='label-size'><a class='label-name' href='#'>Live Reports</a></span>
+    <span class='label-size'><a class='label-name' href='#'>Economy</a></span>
+   </div>
+  </div>
+ </aside>
+</div>
+
+<footer class='site-footer'>
+ <div class='footer-grid'>
+  <div>
+   <h5>GlobalWire</h5>
+   <a href='#'>Independent, verified international journalism you can trust.</a>
+  </div>
+  <div>
+   <h5>Sections</h5>
+   <a href='#'>World Events</a><a href='#'>Breaking News</a><a href='#'>Live Reports</a>
+  </div>
+  <div>
+   <h5>Standards</h5>
+   <a href='#'>Editorial Policy</a><a href='#'>Fact-Checking Process</a><a href='#'>Corrections</a>
+  </div>
+ </div>
+ <div class='copyright'>&#169; GlobalWire &#8212; All stories verified prior to publication.</div>
+</footer>
+
+<script>
+document.querySelector('.menu-toggle').addEventListener('click',function(){
+ var n=document.querySelector('.navbar ul');
+ n.style.display = n.style.display==='flex'?'none':'flex';
+ n.style.flexDirection='column';
+});
+</script>
+
+</body>
+</html>
